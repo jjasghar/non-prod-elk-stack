@@ -1,0 +1,16 @@
+input {
+  stdin {}
+  file {
+    type => syslog
+    path => "/var/log/*"
+    start_position => beginning
+  }
+}
+output {
+  stdout {
+    codec => rubydebug
+  }
+  elasticsearch {
+    host => localhost
+  }
+}
